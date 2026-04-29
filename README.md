@@ -7,22 +7,59 @@ To write a program to predict the type of species of the Iris flower using the S
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-1. 
-2. 
-3. 
-4. 
+1)Start.
+
+2)Import Necessary Libraries and Load Data.
+
+3)Split Dataset into Training and Testing Sets.
+
+4)Train the Model Using Stochastic Gradient Descent (SGD).
+
+5)Make Predictions and Evaluate Accuracy.
+
+6)Generate Confusion Matrix.
+
+7)Stop 
 
 ## Program:
 ```
 /*
 Program to implement the prediction of iris species using SGD Classifier.
-Developed by: 
-RegisterNumber:  
+Developed by: SHAMSHEER BANU M
+RegisterNumber:  212225040400
+
+import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn.linear_model import SGDClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score,confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
+iris = load_iris()
+df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+df['target'] = iris.target
+print(df.head())
+X = df.drop('target', axis=1)
+y = df['target']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+sgd_clf = SGDClassifier(max_iter=1000, tol=1e-3)
+sgd_clf.fit(X_train, y_train)
+y_pred = sgd_clf.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy:.3f}")
+cm = confusion_matrix(y_test, y_pred)
+print("confusion_matrix:")
+print(cm)
+
+
 */
 ```
 
 ## Output:
-![prediction of iris species using SGD Classifier](sam.png)
+
+
+<img width="1082" height="457" alt="Screenshot 2026-04-29 134621" src="https://github.com/user-attachments/assets/4e04c46f-e14c-4ce9-ace1-148191438c63" />
+
 
 
 ## Result:
